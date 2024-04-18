@@ -4,6 +4,7 @@ metadata:
   annotations:
     kompose.cmd: kompose convert --out kompose-deployment-ingress/ --controller deployment --replicas 2
     kompose.service.expose: nodejs-example-app.zer0.hu
+    kompose.service.expose.ingress-class-name: nginx
     kompose.version: 1.32.0 (HEAD)
   labels:
     io.kompose.service: app3
@@ -18,6 +19,7 @@ spec:
       annotations:
         kompose.cmd: kompose convert --out kompose-deployment-ingress/ --controller deployment --replicas 2
         kompose.service.expose: nodejs-example-app.zer0.hu
+        kompose.service.expose.ingress-class-name: nginx
         kompose.version: 1.32.0 (HEAD)
       labels:
         io.kompose.network/nodejs-example-app-default: "true"

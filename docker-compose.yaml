@@ -6,8 +6,9 @@ services:
     # restart: on-failure
     entrypoint: "node"
     command: "index.js"
-    labels:
-      kompose.service.expose: "nodejs-example-app.zer0.hu"
+    # labels:
+    #  kompose.service.expose: "nodejs-example-app.zer0.hu"
+    #  kompose.service.expose.ingress-class-name: "nginx"
     # volumes:
     #   - ./:/home/node
     ports:
