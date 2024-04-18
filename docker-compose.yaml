@@ -1,13 +1,13 @@
 version: "3.8"
 
 services:
-  app:
+  app3:
     image: zerosuxx/nodejs-example-app:0.1.0
-    restart: on-failure
+    # restart: on-failure
     entrypoint: "node"
     command: "index.js"
-    # labels:
-    #  kompose.service.expose: "nodejs-example-app.zer0.hu"
+    labels:
+      kompose.service.expose: "nodejs-example-app.zer0.hu"
     # volumes:
     #   - ./:/home/node
     ports:

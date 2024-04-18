@@ -2,26 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert --out kompose-deployment/ --controller deployment --replicas 2
+    kompose.cmd: kompose convert --out kompose-deployment-ingress/ --controller deployment --replicas 2
     kompose.service.expose: nodejs-example-app.zer0.hu
     kompose.version: 1.32.0 (HEAD)
   labels:
-    io.kompose.service: app
-  name: app
+    io.kompose.service: app3
+  name: app3
 spec:
   replicas: 2
   selector:
     matchLabels:
-      io.kompose.service: app
+      io.kompose.service: app3
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert --out kompose-deployment/ --controller deployment --replicas 2
+        kompose.cmd: kompose convert --out kompose-deployment-ingress/ --controller deployment --replicas 2
         kompose.service.expose: nodejs-example-app.zer0.hu
         kompose.version: 1.32.0 (HEAD)
       labels:
         io.kompose.network/nodejs-example-app-default: "true"
-        io.kompose.service: app
+        io.kompose.service: app3
     spec:
       containers:
         - args:
@@ -34,9 +34,9 @@ spec:
             - name: AUTH_TOKEN
               value: t0k3n
           image: zerosuxx/nodejs-example-app:0.1.0
-          name: app
+          name: app3
           ports:
             - containerPort: 3000
               hostPort: 3000
               protocol: TCP
-      restartPolicy: OnFailure
+      restartPolicy: Always
