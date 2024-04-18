@@ -3,20 +3,20 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - 'main'
     tags:
       - '*'
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: 'zerosuxx/example'
+  IMAGE_NAME: 'zerosuxx/nodejs-example-app'
   PLATFORMS: 'linux/amd64,linux/arm64'
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set up QEMU
