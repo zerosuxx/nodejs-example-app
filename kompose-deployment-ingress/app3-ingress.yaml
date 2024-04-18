@@ -5,6 +5,7 @@ metadata:
     kompose.cmd: kompose convert --out kompose-deployment-ingress/ --controller deployment --replicas 2
     kompose.service.expose: nodejs-example-app.zer0.hu
     kompose.version: 1.32.0 (HEAD)
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
   labels:
     io.kompose.service: app3
   name: app3
