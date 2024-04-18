@@ -4,10 +4,10 @@ USER node
 
 WORKDIR /home/node
 
-COPY --chown node:node package.json package-lock.json ./
+COPY --chown=node:node package.json package-lock.json ./
 RUN npm install
 
-COPY --chown node:node index.js ./index.js
+COPY --chown=node:node index.js ./index.js
 
 EXPOSE 3000
 
