@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  app:
+    image: zerosuxx/nodejs-example-app:0.1.0
+    restart: on-failure
+    entrypoint: "node"
+    command: "index.js"
+    # labels:
+    #  kompose.service.expose: "nodejs-example-app.zer0.hu"
+    # volumes:
+    #   - ./:/home/node
+    ports:
+      - "3000:3000"
+    environment:
+      APP_ENV: "staging"
+      AUTH_TOKEN: "t0k3n"

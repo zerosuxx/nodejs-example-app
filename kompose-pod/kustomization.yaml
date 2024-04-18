@@ -1,0 +1,3 @@
+resources:
+  - app-pod.yaml
+  - app-service.yaml

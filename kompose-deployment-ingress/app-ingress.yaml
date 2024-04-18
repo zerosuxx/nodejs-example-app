@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kompose.cmd: kompose convert --out kompose-deployment/ --controller deployment --replicas 2
+    kompose.service.expose: nodejs-example-app.zer0.hu
+    kompose.version: 1.32.0 (HEAD)
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  rules:
+    - host: nodejs-example-app.zer0.hu
+      http:
+        paths:
+          - backend:
+              service:
+                name: app
+                port:
+                  number: 3000
+            path: /
+            pathType: Prefix
