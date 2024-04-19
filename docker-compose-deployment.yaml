@@ -1,9 +1,8 @@
 version: "3.8"
 
 services:
-  app-pod:
+  app-deployment:
     image: zerosuxx/nodejs-example-app:0.1.0
-    restart: on-failure
     entrypoint: "node"
     command: "index.js"
     environment:

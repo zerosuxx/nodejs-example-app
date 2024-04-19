@@ -1,0 +1,4 @@
+resources:
+  - app-deployment-deployment.yaml
+  - app-deployment-service.yaml
+  - app-deployment-ingress.yaml

@@ -1,4 +1,0 @@
-resources:
-  - app3-deployment.yaml
-  - app3-service.yaml
-  - app3-ingress.yaml

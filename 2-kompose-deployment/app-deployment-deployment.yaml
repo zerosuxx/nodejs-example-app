@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert --out kompose-deployment/ --controller deployment --replicas 2
-    kompose.version: 1.32.0 (HEAD)
+    kompose.cmd: kompose convert -f docker-compose-deployment.yaml --replicas 2 --out 2-kompose-deployment
+    kompose.version: 1.32.0 (765fde254)
   labels:
-    io.kompose.service: app2
-  name: app2
+    io.kompose.service: app-deployment
+  name: app-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      io.kompose.service: app2
+      io.kompose.service: app-deployment
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert --out kompose-deployment/ --controller deployment --replicas 2
-        kompose.version: 1.32.0 (HEAD)
+        kompose.cmd: kompose convert -f docker-compose-deployment.yaml --replicas 2 --out 2-kompose-deployment
+        kompose.version: 1.32.0 (765fde254)
       labels:
         io.kompose.network/nodejs-example-app-default: "true"
-        io.kompose.service: app2
+        io.kompose.service: app-deployment
     spec:
       containers:
         - args:
@@ -32,9 +32,5 @@ spec:
             - name: AUTH_TOKEN
               value: t0k3n
           image: zerosuxx/nodejs-example-app:0.1.0
-          name: app2
-          ports:
-            - containerPort: 3000
-              hostPort: 3000
-              protocol: TCP
+          name: app-deployment
       restartPolicy: Always
