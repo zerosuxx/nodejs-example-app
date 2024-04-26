@@ -5,3 +5,4 @@ metadata:
   name: example-app-configmap
 data:
   APP_ENV: "staging"
+  APP_LOCAL: "eu1"
