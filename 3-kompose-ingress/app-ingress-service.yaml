@@ -2,18 +2,18 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    kompose.cmd: kompose convert -f docker-compose-ingress.yaml --replicas 2 --out 3-kompose-ingress
+    kompose.cmd: kompose convert --file /src/docker-compose-ingress.yaml --out 3-kompose-ingress --replicas 2
     kompose.service.expose: nodejs-example-app.zer0.hu
     kompose.service.expose.ingress-class-name: nginx
-    kompose.version: 1.32.0 (765fde254)
+    kompose.version: 1.32.0 (HEAD)
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
   labels:
-    io.kompose.service: app-deployment
-  name: app-deployment
+    io.kompose.service: app-ingress
+  name: app-ingress
 spec:
   ports:
     - name: "3000"
       port: 3000
       targetPort: 3000
   selector:
-    io.kompose.service: app-deployment
+    io.kompose.service: app-ingress

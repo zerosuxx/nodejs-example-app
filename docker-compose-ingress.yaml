@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  app-deployment:
+  app-ingress:
     image: zerosuxx/nodejs-example-app:0.1.0
     entrypoint: "node"
     command: "index.js"
